@@ -7,7 +7,7 @@ function App() {
       <div>
         <h1>React Router</h1>
         <a
-          href="https://v5.reactrouter.com/web/guides/quick-start"
+          href="https://reactrouter.com/docs/en/v6"
           target="_blank"
           rel="noreferrer"
         >

@@ -1,11 +1,25 @@
 import { Routes, Route, Link } from "react-router-dom";
+import Doc from "../pages/Doc";
+import Productos from "../pages/Productos";
 
-const ConceptosBasicos = () => {
+const ConceptosBasicos = (Docum) => {
   return (
     <div>
       <h2>Conceptos Básicos de la librería ROUTER</h2>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/productos" element={<Productos />} />
+        <Route
+          path="/doc"
+          element={
+            <>
+              <h4 style={{ color: "red" }}>
+                / / / H3 inyectado en el element / / /{" "}
+              </h4>
+              <Doc />
+            </>
+          }
+        />
         <Route path="/contact" element={<Contact />} />
         <Route path="/about" element={<About />} />
       </Routes>
@@ -19,6 +33,8 @@ const Home = () => {
       <nav>
         <Link to="/about"> About </Link>
         <Link to="/contact">Contact</Link>
+        <Link to="/productos">Productos</Link>
+        <Link to="/doc">Documentación</Link>
       </nav>
       <main>
         <h3>Bienvenidos a la página HOME</h3>
@@ -41,6 +57,8 @@ const Contact = () => {
       <nav>
         <Link to="/"> Home </Link>
         <Link to="/about">About </Link>
+        <Link to="/productos">Productos</Link>
+        <Link to="/doc">Documentación</Link>
       </nav>
       <main>
         <h3>Estemos en contacto</h3>
@@ -66,6 +84,8 @@ const About = () => {
       <nav>
         <Link to="/"> Home </Link>
         <Link to="/contact">Contact</Link>
+        <Link to="/productos">Productos</Link>
+        <Link to="/doc">Documentación</Link>
       </nav>
       <main>
         <h3>Acerca de nosotros</h3>
