@@ -1,25 +1,21 @@
 import { Routes, Route, Link } from "react-router-dom";
 import Doc from "../pages/Doc";
 import Productos from "../pages/Productos";
+import Error404 from "../pages/Error404";
+import Home from "../pages/Home";
 
 const ConceptosBasicos = (Docum) => {
   return (
     <div>
-      <h2>Conceptos Básicos de la librería ROUTER</h2>
+      <h3>Conceptos Básicos de la librería ROUTER</h3>
+      <h2>Rutas declarativas y Error 404</h2>
+      <hr />
       <Routes>
+        {/* El Error 404 No necesariamente va al final, ya que desde la versión 6 ya no se usa la propiedad "exact" */}
+        <Route path="*" element={<Error404 />} />
         <Route path="/" element={<Home />} />
         <Route path="/productos" element={<Productos />} />
-        <Route
-          path="/doc"
-          element={
-            <>
-              <h4 style={{ color: "red" }}>
-                / / / H3 inyectado en el element / / /{" "}
-              </h4>
-              <Doc />
-            </>
-          }
-        />
+        <Route path="/doc" element={<Doc />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/about" element={<About />} />
       </Routes>
@@ -27,7 +23,7 @@ const ConceptosBasicos = (Docum) => {
   );
 };
 
-const Home = () => {
+/* const Home = () => {
   return (
     <>
       <nav>
@@ -50,7 +46,7 @@ const Home = () => {
       </main>
     </>
   );
-};
+}; */
 const Contact = () => {
   return (
     <>
