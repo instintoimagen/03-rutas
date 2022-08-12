@@ -1,8 +1,10 @@
-import { Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Doc from "../pages/Doc";
 import Productos from "../pages/Productos";
 import Error404 from "../pages/Error404";
 import Home from "../pages/Home";
+import MenuConceptos from "./MenuConceptos";
+import Usuario from "../pages/Usuario";
 
 const ConceptosBasicos = (Docum) => {
   return (
@@ -10,19 +12,24 @@ const ConceptosBasicos = (Docum) => {
       <h3>Conceptos Básicos de la librería ROUTER</h3>
       <h2>Rutas declarativas y Error 404</h2>
       <hr />
-      <Routes>
-        {/* El Error 404 No necesariamente va al final, ya que desde la versión 6 ya no se usa la propiedad "exact" */}
-        <Route path="*" element={<Error404 />} />
-        <Route path="/" element={<Home />} />
-        <Route path="/productos" element={<Productos />} />
-        <Route path="/doc" element={<Doc />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/about" element={<About />} />
-      </Routes>
+      <Router>
+        {/* Se sacó BrouserRouter de App.js y se trajo acá, envolviendo menú y los Routes. Importante! => Nunca el Menú dentro de Routes */}
+        <MenuConceptos />
+        <Routes>
+          <Route path="*" element={<Error404 />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/productos" element={<Productos />} />
+          <Route path="/doc" element={<Doc />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/usuario/:username" element={<Usuario />} />
+        </Routes>
+      </Router>
     </div>
   );
 };
 
+// Si se activan <Link> aquí abajo, deben importarse arriba desde "react-router-dom"
 /* const Home = () => {
   return (
     <>
@@ -50,15 +57,24 @@ const ConceptosBasicos = (Docum) => {
 const Contact = () => {
   return (
     <>
-      <nav>
+      {/*       <nav>
         <Link to="/"> Home </Link>
         <Link to="/about">About </Link>
         <Link to="/productos">Productos</Link>
         <Link to="/doc">Documentación</Link>
-      </nav>
+      </nav> */}
       <main>
         <h3>Estemos en contacto</h3>
-        <form>
+        <form
+          style={{
+            backgroundColor: "#000",
+            color: "#bbb",
+            display: "table",
+            padding: "1rem",
+            margin: "0 0 .5rem",
+            borderRadius: "7px",
+          }}
+        >
           <input type="text" placeholder="Nombre" />
           <input type="email" placeholder="mail" />
         </form>
@@ -77,12 +93,12 @@ const Contact = () => {
 const About = () => {
   return (
     <>
-      <nav>
+      {/*       <nav>
         <Link to="/"> Home </Link>
         <Link to="/contact">Contact</Link>
         <Link to="/productos">Productos</Link>
         <Link to="/doc">Documentación</Link>
-      </nav>
+      </nav> */}
       <main>
         <h3>Acerca de nosotros</h3>
         <img src="https://placeimg.com/300/300/tech" alt="Tecnologia" />

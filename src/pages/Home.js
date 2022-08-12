@@ -3,19 +3,19 @@ import { Link } from "react-router-dom";
 const Home = () => {
   return (
     <>
-      <nav>
+      {/*  <nav>
         <Link to="/about"> About </Link>
         <Link to="/contact">Contact</Link>
         <Link to="/productos">Productos</Link>
         <Link to="/doc">Documentación</Link>
-      </nav>
+      </nav> */}
       <main>
         <h3>Bienvenidos a la página HOME</h3>
         <h4
           style={{
             backgroundColor: "#000",
             color: "#bbb",
-            display: "inline-block",
+            display: "table",
             padding: "1rem",
             margin: "0 0 .5rem",
           }}

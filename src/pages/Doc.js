@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 const Doc = () => {
   return (
     <>
-      <Link to="/"> Home </Link>
+      {/* <Link to="/"> Home </Link>
       <Link to="/about">About </Link>
       <Link to="/productos">Productos</Link>
-      <Link to="/contact">Contacto</Link>
+      <Link to="/contact">Contacto</Link> */}
       <h3>La Documentación de esta Librería</h3>
       <h4>Esta es una librería genial!</h4>
       <p>

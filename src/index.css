@@ -13,3 +13,113 @@ html {
 hr {
   margin: 2rem auto;
 }
+
+/*  - - - Menu - - -  */
+a {
+  margin: 0.25rem 0.35rem;
+  color: #fff;
+  background-color: #222;
+  text-decoration: none;
+  padding: 0.4rem 0.6rem;
+  border-radius: 5px;
+}
+
+a:hover {
+  background-color: #666;
+}
+
+a:active {
+  padding: 0.4rem 0.5rem;
+  margin: 0.25rem 0.45rem;
+  background-color: #666;
+}
+
+nav {
+  padding: 1rem;
+  background-color: #999;
+}
+
+.active {
+  font-weight: bold;
+  color: #61dafb;
+}
+
+li {
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/*  - - -  Perfil  - - -  */
+.perfil {
+  display: flex;
+  text-align: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  background-color: #666;
+  padding: 2rem;
+}
+.fotoperfil {
+  padding: 2rem;
+  text-align: right;
+}
+.fotoperfil img {
+  max-width: 200px;
+}
+/*  - -  Productos  - - */
+.productos {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.gridproductos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 300px);
+  margin: 0.5rem;
+}
+
+.gridproductos figure {
+  background-color: #ddd;
+  padding: 1.5rem;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  margin: 0.5rem;
+}
+
+.gridproductos figure figcaption {
+  display: inline;
+  padding: 0.5rem 0 0 0;
+  text-align: center;
+  font-weight: bold;
+}
+.botonesproductos {
+  display: flex;
+  justify-content: space-evenly;
+  min-width: 40vw;
+  margin: auto;
+}
+.botonatras,
+.botonadelante {
+  width: 5rem;
+  margin: 0.25rem 0.35rem;
+  color: #fff;
+  background-color: #222;
+  text-decoration: none;
+  padding: 0.4rem 0.6rem;
+  border-radius: 5px;
+  border-color: transparent;
+}
+.botonatras:hover,
+.botonadelante:hover {
+  background-color: #666;
+}
+
+/* .botonatras:active,
+.botonadelante:active {
+  padding: 0.4rem 0.5rem;
+  margin: 0.25rem 0.45rem;
+  background-color: #666;
+} */
