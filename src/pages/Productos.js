@@ -1,17 +1,22 @@
-import { useLocation } from "react-router";
+import { useNavigate, useLocation } from "react-router";
 
 const Productos = () => {
-  // let location = useLocation();
-  // console.log(location);
-
   let { search } = useLocation();
   let query = new URLSearchParams(search);
-  // console.log(query);
 
-  // Obtenemos los datos de búsqueda de la ruta, con el método .get()
-  let start = query.get("inicio");
-  let end = query.get("fin");
-  console.log(start, end);
+  const LIMIT = 6; // Cantidad de productos por página. Cuantos más se van a cargar con el botón "siguiente" o "adelante".
+
+  let start = parseInt(query.get("inicio")) || 1; // Obtenemos los datos de búsqueda desde la ruta en la barra de dirección, con el método .get()  Pero necesitamos transformarlos a número con el método parseInt()  Y si no se encuentran en la ruta que ponga el número 1
+  let end = parseInt(query.get("fin")) || LIMIT;
+
+  let navigate = useNavigate();
+
+  const handlePrev = () => {
+    navigate({ search: `?inicio=${start - LIMIT}&fin=${end - LIMIT}` });
+  };
+  const handleNext = () => {
+    navigate({ search: `?inicio=${start + LIMIT}&fin=${end + LIMIT}` });
+  };
 
   return (
     <div className="productos">
@@ -19,6 +24,17 @@ const Productos = () => {
       <h4>
         Mostrando desde el nº {start} hasta el nº {end}
       </h4>
+      <div className="botonesproductos">
+        {/* Conditional Render para que el botón Atrás aparezca si se puede volver hacia atrás. (Que el valor no se vuelva negativo) */}
+        {start > LIMIT && (
+          <button onClick={handlePrev} className="botonatras">
+            ◀️Atrás
+          </button>
+        )}
+        <button onClick={handleNext} className="botonadelante">
+          Adelante▶️
+        </button>
+      </div>
       <div className="gridproductos">
         <figure>
           <img src="https://placeimg.com/300/300/people" alt="Productos" />
@@ -44,10 +60,6 @@ const Productos = () => {
           <img src="https://placeimg.com/300/300/nature" alt="Productos" />
           <figcaption>Productos de naturaleza</figcaption>
         </figure>
-      </div>
-      <div className="botonesproductos">
-        <button className="botonatras">Atrás</button>
-        <button className="botonadelante">Adelante</button>
       </div>
     </div>
   );
