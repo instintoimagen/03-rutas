@@ -123,3 +123,14 @@ li {
   margin: 0.25rem 0.45rem;
   background-color: #666;
 } */
+
+/*  - - - ReactTopics - - -  */
+.menuReact {
+  display: flex;
+}
+
+.react-img {
+  width: 100%;
+  max-height: 20vh;
+  object-fit: cover;
+}

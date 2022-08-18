@@ -47,6 +47,15 @@ const MenuConceptos = () => {
             Perfil
           </NavLink>
         </li>
+        <li>
+          <span>Redirecciones: </span>
+          <Link to="/acerca">Acerca ={">"} About</Link>
+          <Link to="/contacto">Contacto ={">"} Contact</Link>
+        </li>
+        <li>
+          <span>Rutas Anidadas: </span>
+          <Link to="/react">React</Link>
+        </li>
       </ol>
     </nav>
   );

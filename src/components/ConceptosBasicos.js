@@ -1,16 +1,22 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 import Doc from "../pages/Doc";
 import Productos from "../pages/Productos";
 import Error404 from "../pages/Error404";
 import Home from "../pages/Home";
 import MenuConceptos from "./MenuConceptos";
 import Usuario from "../pages/Usuario";
+import ReactTopics from "../pages/ReactTopics";
+import Topic from "./Topic";
 
 const ConceptosBasicos = (Docum) => {
   return (
     <div>
-      <h3>Conceptos Básicos de la librería ROUTER</h3>
-      <h2>Rutas declarativas y Error 404</h2>
+      <h3>Redirecciones y Nesting (Anidadas)</h3>
       <hr />
       <Router>
         {/* Se sacó BrouserRouter de App.js y se trajo acá, envolviendo menú y los Routes. Importante! => Nunca el Menú dentro de Routes */}
@@ -23,6 +29,11 @@ const ConceptosBasicos = (Docum) => {
           <Route path="/contact" element={<Contact />} />
           <Route path="/about" element={<About />} />
           <Route path="/usuario/:username" element={<Usuario />} />
+          <Route path="/acerca" element={<Navigate to="/about" />} />
+          <Route path="/contacto" element={<Navigate to="/contact" />} />
+          <Route path="/react" element={<ReactTopics />}>
+            <Route path=":topic" element={<Topic />} />
+          </Route>
         </Routes>
       </Router>
     </div>
