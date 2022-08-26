@@ -134,3 +134,23 @@ li {
   max-height: 20vh;
   object-fit: cover;
 }
+
+/*  - - - Rutas Privadas - - -  */
+.inputCenter {
+  display: flex;
+  justify-content: center;
+}
+.login {
+  display: flex;
+  flex-direction: column;
+  background-color: #222;
+  color: rgb(187, 187, 187);
+  padding: 3.5rem;
+  border-radius: 5px;
+  margin: 0 0 1rem 0;
+}
+.login input,
+.login button {
+  padding: 0.25rem;
+  margin: 1rem 0;
+}

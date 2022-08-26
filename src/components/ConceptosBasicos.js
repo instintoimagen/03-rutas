@@ -1,9 +1,4 @@
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Navigate,
-} from "react-router-dom";
+import { Routes, Route, Navigate, HashRouter } from "react-router-dom";
 import Doc from "../pages/Doc";
 import Productos from "../pages/Productos";
 import Error404 from "../pages/Error404";
@@ -12,14 +7,17 @@ import MenuConceptos from "./MenuConceptos";
 import Usuario from "../pages/Usuario";
 import ReactTopics from "../pages/ReactTopics";
 import Topic from "./Topic";
+import Login from "../pages/Login";
+import Dashboard from "../pages/Dashboard";
+import PrivateRoute from "./PrivateRoute";
 
 const ConceptosBasicos = (Docum) => {
   return (
     <div>
-      <h3>Redirecciones y Nesting (Anidadas)</h3>
-      <hr />
-      <Router>
-        {/* Se sacó BrouserRouter de App.js y se trajo acá, envolviendo menú y los Routes. Importante! => Nunca el Menú dentro de Routes */}
+      <h3># Nuevo Menú con Hash Router #</h3>
+      <HashRouter>
+        {/* SE REEMPLAZÓ BrowserRouter por HashRouter. 
+        Antes se había traído del archivo App.js. El menú siempre fuera de Routes. */}
         <MenuConceptos />
         <Routes>
           <Route path="*" element={<Error404 />} />
@@ -34,8 +32,17 @@ const ConceptosBasicos = (Docum) => {
           <Route path="/react" element={<ReactTopics />}>
             <Route path=":topic" element={<Topic />} />
           </Route>
+          <Route path="/login" element={<Login />} />
+          <Route
+            path="/dashboard"
+            element={<PrivateRoute component={Dashboard} />}
+          />
+          {/* <Route
+            path="/dashboard"
+            element={auth ? <Dashboard /> : <Navigate to="/login" />}
+          /> */}
         </Routes>
-      </Router>
+      </HashRouter>
     </div>
   );
 };
@@ -76,17 +83,10 @@ const Contact = () => {
       </nav> */}
       <main>
         <h3>Estemos en contacto</h3>
-        <form
-          style={{
-            backgroundColor: "#000",
-            color: "#bbb",
-            display: "table",
-            padding: "1rem",
-            margin: "0 0 .5rem",
-            borderRadius: "7px",
-          }}
-        >
+        <form className="login">
+          <label>Ingresa tu nombre</label>
           <input type="text" placeholder="Nombre" />
+          <label>Ingresa tu mail</label>
           <input type="email" placeholder="mail" />
         </form>
         <img src="https://placeimg.com/300/300/animals" alt="Animales" />
